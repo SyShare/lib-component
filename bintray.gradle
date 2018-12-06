@@ -70,11 +70,12 @@ bintray {
     key = properties.getProperty("bintray.apikey")
     configurations = ['archives']
     pkg {
-        repo = "ComponentLib"  //发布到Bintray的那个仓库里，默认账户有四个库，我们这里上传到maven库
-        name = "ComponentLib"  //发布到Bintray上的项目名字
+        repo = "maven"  //发布到Bintray的那个仓库里，默认账户有四个库，我们这里上传到maven库
+        name = "componentlib"  //发布到Bintray上的项目名字
         websiteUrl = siteUrl
         vcsUrl = gitUrl
         licenses = ["Apache-2.0"]
         publish = true
+        version = "1.0"
     }
 }
