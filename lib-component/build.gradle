@@ -1,6 +1,5 @@
 apply plugin: 'groovy'
 apply plugin: 'maven'
-apply plugin: 'com.novoda.bintray-release'//添加
 
 dependencies {
     //gradle sdk
@@ -15,23 +14,11 @@ repositories {
 
 /** 以下开始是将Android Library上传到jcenter的相关配置**/
 
-//添加
-publish {
-    repoName = 'maven'//远程仓库名字,不指明，默认是上传到maven
-    userOrg = 'sharebysy'//bintray.com的用户名
-    groupId = 'com.component'//jcenter上的路径
-    artifactId = 'componentlib'//项目名称
-    publishVersion = '1.0'//版本号
-    desc = 'gradlew 控制切换library依赖方式'//描述，不重要
-    website = 'https://github.com/SyShare/lib-component'//项目主页
-}
+// 版本号，下次更新是只需要更改版本号即可
+version = "1.0"
+group = "com.compnent" //一般填你唯一的包名
 
-
-tasks.withType(Javadoc) {//防止编码问题
-    options.addStringOption('Xdoclint:none', '-quiet')
-    options.addStringOption('encoding', 'UTF-8')
-    options.addStringOption('charSet', 'UTF-8')
-}
-
+// 应用插件
+apply from: '../bintray.gradle'
 
 
